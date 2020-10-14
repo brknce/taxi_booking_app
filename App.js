@@ -1,7 +1,9 @@
 import React from 'react';
-import MapView  from 'react-native-maps';
+import MapView from 'react-native-maps';
 import Location from 'expo-location';
 import Permissions from 'expo-permissions';
+import DestinationButton from "./components/DestinationButton"
+import {View, Text } from 'react-native';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -30,13 +32,16 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <MapView
-        initialRegion={this.state.region}
-        showsUserLocation={true}
-        showsCompass={true}
-        rotateEnabled={false}
-        style={{ flex: 1 }}
-      />
+      <View style = {{flex : 1}}>
+        <DestinationButton/>
+        <MapView
+          initialRegion={this.state.region}
+          showsUserLocation={true}
+          showsCompass={true}
+          rotateEnabled={false}
+          style={{ flex: 1 }}
+        />
+      </View>
     );
   }
 }
